@@ -9,11 +9,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const con = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
+    host: 'navidb.csdvsh1trzoq.ap-northeast-2.rds.amazonaws.com',
+    user: 'admin',
+    password: 'gulmat456',
     port: 3306,
-    database : 'naviwebtest'
+    database : 'naviweb'
 });
 
 app.use(express.static(path.join(__dirname, '../client/build')));
@@ -23,7 +23,7 @@ app.get('/', function(req,res) {
 
 app.post('/getStore',function(req,res){
     var priceInterval= parseInt(req.body.priceInterval);
-    var sql = `SELECT * FROM store WHERE (price >= ${priceInterval}) AND (price < ${priceInterval + 1000})`;
+    var sql = `SELECT * FROM storeInfo WHERE (price >= ${priceInterval}) AND (price < ${priceInterval + 1000})`;
     con.query(sql, function (err, results, fields) {
       if (err) throw err;
       res.send(results);
