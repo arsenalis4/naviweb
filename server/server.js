@@ -23,7 +23,7 @@ app.get('/', function(req,res) {
 
 app.post('/getStore',function(req,res){
     var priceInterval= parseInt(req.body.priceInterval);
-    var sql = `SELECT * FROM storeInfo WHERE (price >= ${priceInterval}) AND (price < ${priceInterval + 1000})`;
+    var sql = `SELECT * FROM storeInfo WHERE (price >= ${priceInterval}) AND (price < ${priceInterval} + 1000) ORDER BY price ASC, store ASC;`;
     con.query(sql, function (err, results, fields) {
       if (err) throw err;
       res.send(results);
