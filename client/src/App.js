@@ -16,7 +16,7 @@ function App() {
     if(userPrice === null){
       //Do Something...
     } else{
-      axios.post("http://localhost:3000/getStore", {
+      axios.post("https://navimenu.store/getStore", {
         priceInterval: userPrice
       }).then((res)=>{
         const data = res.data;
