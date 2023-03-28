@@ -28,7 +28,7 @@ function App() {
 
         if(searchCount > 0){
           data.forEach((e)=>{
-            lis.push(<div className='storeBox'><div className='storeBoxMenuInfo'><div className='storeName'>{e.store}</div><div>{e.menu}</div></div><div className='storeBoxPriceInfo'>{e.price} 원</div><div className='storeBoxMapInfo'><a href={e.url}>위치 보러가기</a></div></div>);
+            lis.push(<div className='storeBox'><div className='storeBoxMenuInfo'><div className='storeName'>{e.store}</div><div style={{"color": "#3B3838"}}>{e.menu}</div></div><div className='storeBoxPriceInfo'>{e.price} 원</div><div className='storeBoxMapInfo'><a href={e.url}>위치 보러가기</a></div></div>);
           });
         }
         setDB(lis);
